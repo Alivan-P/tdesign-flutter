@@ -215,31 +215,32 @@ class TDRadioGroup extends TDCheckboxGroup {
           }
           // 横向单选框 每个选项有字数限制
           if (direction == Axis.horizontal && directionalTdRadios != null) {
-            directionalTdRadios.forEach((element) {
-              if (element.subTitle != null) {
-                throw FlutterError('horizontal radios style should not have subTilte, '
-                    'because there left no room for it');
-              }
-            });
-            var maxWordCount = 2;
-            var tips = '[TDRadioGroup] radio title please not exceed $maxWordCount words.\n'
-                '2tabs: 7words maximum\n'
-                '3tabs: 4words maximum\n'
-                '4tabs: 2words maximum';
-            if (directionalTdRadios.length == 2) {
-              maxWordCount = 7;
-            }
-            if (directionalTdRadios.length == 3) {
-              maxWordCount = 4;
-            }
-            if (directionalTdRadios.length == 4) {
-              maxWordCount = 2;
-            }
-            directionalTdRadios.forEach((radio) {
-              if ((radio.title?.length ?? 0) > maxWordCount) {
-                throw FlutterError(tips);
-              }
-            });
+            // 取消字数限制 By Vivian
+            // directionalTdRadios.forEach((element) {
+            //   if (element.subTitle != null) {
+            //     throw FlutterError('horizontal radios style should not have subTilte, '
+            //         'because there left no room for it');
+            //   }
+            // });
+            // var maxWordCount = 2;
+            // var tips = '[TDRadioGroup] radio title please not exceed $maxWordCount words.\n'
+            //     '2tabs: 7words maximum\n'
+            //     '3tabs: 4words maximum\n'
+            //     '4tabs: 2words maximum';
+            // if (directionalTdRadios.length == 2) {
+            //   maxWordCount = 7;
+            // }
+            // if (directionalTdRadios.length == 3) {
+            //   maxWordCount = 4;
+            // }
+            // if (directionalTdRadios.length == 4) {
+            //   maxWordCount = 2;
+            // }
+            // directionalTdRadios.forEach((radio) {
+            //   if ((radio.title?.length ?? 0) > maxWordCount) {
+            //     throw FlutterError(tips);
+            //   }
+            // });
           }
           // 卡片模式要求每个TDRadio必须设置cardMode属性为true，且不能有子标题（空间不够）
           if (cardMode == true) {
