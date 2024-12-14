@@ -417,8 +417,13 @@ class DatePickerModel {
   List<int> dateEnd;
   List<int>? dateInitial;
 
-  final mapping = ['年', '月', '日', '周', '时', '分', '秒'];
-  final weekMap = ['一', '二', '三', '四', '五', '六', '日'];
+  //无法适配多语言，先不显示年月日周时分秒中文字眼 By Vivian
+  // final mapping = ['年', '月', '日', '周', '时', '分', '秒'];
+  final mapping =  ['', '', '', '', '', '', ''];
+
+  //不支持外部配置多语言，先写死，几乎用不到显示周几的场景 By Vivian
+  // final weekMap = ['一', '二', '三', '四', '五', '六', '日'];
+  final weekMap = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   late DateTime initialTime;
 
